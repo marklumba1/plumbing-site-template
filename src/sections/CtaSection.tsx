@@ -1,5 +1,6 @@
 import { Container } from '../components/layout/Container.tsx'
 import { FullBleedSection } from '../components/layout/FullBleedSection.tsx'
+import { SectionHeader } from '../components/ui/SectionHeader.tsx'
 import type { BusinessData, CtaData } from '../lib/siteData.ts'
 
 type CtaSectionProps = {
@@ -12,9 +13,7 @@ export function CtaSection({ data, business }: CtaSectionProps) {
     <FullBleedSection id="contact" className="pb-10 pt-6 sm:pb-12 sm:pt-8" background={data.sectionBackground}>
       <Container>
         <div className="interactive-card rounded-2xl border border-slate-200 bg-linear-to-r from-[var(--theme-primary-700)] to-[var(--theme-primary-600)] p-6 text-white shadow-lg sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--theme-primary-100)]">{data.eyebrow}</p>
-          <h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">{data.title}</h2>
-          <p className="mt-3 max-w-2xl text-base leading-7 text-[var(--theme-primary-50)]">{data.description}</p>
+          <SectionHeader eyebrow={data.eyebrow} title={data.title} description={data.description} tone="inverse" />
 
           <div className="mt-6 flex flex-wrap gap-3">
             <a

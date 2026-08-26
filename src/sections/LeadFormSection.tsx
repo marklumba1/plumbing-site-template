@@ -1,6 +1,7 @@
 import { Container } from '../components/layout/Container.tsx'
 import { FullBleedSection } from '../components/layout/FullBleedSection.tsx'
 import { FormSuccessModal } from '../components/ui/FormSuccessModal.tsx'
+import { SectionHeader } from '../components/ui/SectionHeader.tsx'
 import type { LeadFormData } from '../lib/siteData.ts'
 import { useNetlifyFormSubmission } from '../lib/useNetlifyFormSubmission.ts'
 
@@ -17,9 +18,7 @@ export function LeadFormSection({ data }: LeadFormSectionProps) {
         <div className="interactive-card rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
           <div className="grid gap-5 lg:grid-cols-[1.1fr_1.2fr] lg:items-start">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--theme-primary-700)]">{data.eyebrow}</p>
-              <h2 className="mt-2 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">{data.title}</h2>
-              <p className="mt-3 max-w-xl text-base leading-7 text-slate-700">{data.description}</p>
+              <SectionHeader eyebrow={data.eyebrow} title={data.title} description={data.description} />
             </div>
 
             <form

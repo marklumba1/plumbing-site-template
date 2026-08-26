@@ -1,6 +1,8 @@
 import { Container } from '../components/layout/Container.tsx'
 import { FullBleedSection } from '../components/layout/FullBleedSection.tsx'
+import { Badge } from '../components/ui/Badge.tsx'
 import { FormSuccessModal } from '../components/ui/FormSuccessModal.tsx'
+import { SectionHeader } from '../components/ui/SectionHeader.tsx'
 import type { EmergencyBannerData } from '../lib/siteData.ts'
 import { useNetlifyFormSubmission } from '../lib/useNetlifyFormSubmission.ts'
 
@@ -24,9 +26,14 @@ export function EmergencyBannerSection({ data }: EmergencyBannerSectionProps) {
         >
           <div className="grid gap-6 lg:grid-cols-[1.3fr_1fr] lg:items-start">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--theme-primary-100)]">{data.eyebrow}</p>
-              <h2 className="mt-2 text-2xl font-black tracking-tight sm:text-3xl">{data.title}</h2>
-              <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--theme-primary-50)] sm:text-base">{data.description}</p>
+              <SectionHeader
+                eyebrow={data.eyebrow}
+                title={data.title}
+                description={data.description}
+                tone="inverse"
+                titleClassName="text-2xl sm:text-3xl"
+                descriptionClassName="max-w-3xl text-sm sm:text-base"
+              />
 
               <div className="mt-5 flex flex-wrap gap-2.5">
                 <a
@@ -45,8 +52,10 @@ export function EmergencyBannerSection({ data }: EmergencyBannerSectionProps) {
 
               <ul className="mt-5 grid gap-2 text-sm sm:grid-cols-3">
                 {data.badges.map((badge) => (
-                  <li key={badge} className="rounded-xl border border-white/25 bg-white/10 px-3 py-2 text-center font-semibold">
-                    {badge}
+                  <li key={badge} className="text-center">
+                    <Badge tone="inverted" size="md" className="w-full justify-center rounded-xl border-white/25 bg-white/10 normal-case tracking-normal">
+                      {badge}
+                    </Badge>
                   </li>
                 ))}
               </ul>

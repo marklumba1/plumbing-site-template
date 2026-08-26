@@ -1,5 +1,7 @@
 import { Container } from '../components/layout/Container.tsx'
 import { FullBleedSection } from '../components/layout/FullBleedSection.tsx'
+import { Badge } from '../components/ui/Badge.tsx'
+import { SectionHeader } from '../components/ui/SectionHeader.tsx'
 import type { ServiceAreasData } from '../lib/siteData.ts'
 
 type ServiceAreasSectionProps = {
@@ -16,16 +18,12 @@ export function ServiceAreasSection({ data }: ServiceAreasSectionProps) {
           <div className="bg-linear-to-r from-[var(--theme-primary-50)] via-white to-[var(--theme-primary-50)] p-6 sm:p-8">
             <div className="grid gap-6 lg:grid-cols-[1fr_1.35fr] lg:gap-8">
               <div className="rounded-2xl border border-[var(--theme-primary-100)] bg-white p-5">
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--theme-primary-700)]">
-                  {data.eyebrow}
-                </p>
-                <h2 className="mt-2 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">{data.title}</h2>
-                <p className="mt-3 text-base leading-7 text-slate-700">{data.description}</p>
+                <SectionHeader eyebrow={data.eyebrow} title={data.title} description={data.description} />
 
-                <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[var(--theme-primary-100)] bg-[var(--theme-primary-50)] px-3 py-1.5 text-xs font-bold uppercase tracking-[0.12em] text-[var(--theme-primary-700)]">
-                  <span className="inline-flex h-2 w-2 rounded-full bg-[var(--theme-primary-600)]" aria-hidden="true"></span>
+                <Badge className="mt-5 gap-2 border-[var(--theme-primary-100)] bg-[var(--theme-primary-50)] text-[var(--theme-primary-700)]">
+                  <span className="inline-flex h-2 w-2 rounded-full bg-[var(--theme-primary-600)]" aria-hidden="true" />
                   Serving {areaCount} areas
-                </div>
+                </Badge>
               </div>
 
               <ul className="grid gap-3 sm:grid-cols-2">
