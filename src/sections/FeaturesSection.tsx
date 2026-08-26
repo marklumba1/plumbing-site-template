@@ -1,22 +1,27 @@
 import { Container } from '../components/layout/Container.tsx'
 import { ServiceCard } from '../components/ui/ServiceCard.tsx'
-import { services } from '../lib/services.ts'
+import type { ServicesData } from '../lib/siteData.ts'
 
-export function FeaturesSection() {
+type FeaturesSectionProps = {
+  data: ServicesData
+}
+
+export function FeaturesSection({ data }: FeaturesSectionProps) {
   return (
-    <section id="services" className="py-7 sm:py-8">
+    <section id="services" className="py-10 sm:py-12">
       <Container>
-        <div className="mb-6 text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-700">
-            Core Services
+        <div className="mb-6">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--theme-primary-700)]">
+            {data.eyebrow}
           </p>
-          <h2 className="mt-1.5 text-2xl font-black tracking-tight text-slate-900 sm:text-3xl">
-            Built around speed and quality
+          <h2 className="mt-2 text-2xl font-black tracking-tight text-slate-900 sm:text-3xl">
+            {data.title}
           </h2>
+          <p className="mt-2 max-w-2xl text-base leading-7 text-slate-700">{data.description}</p>
         </div>
 
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {services.map((item) => (
+          {data.items.map((item) => (
             <ServiceCard
               key={item.title}
               title={item.title}

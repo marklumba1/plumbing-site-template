@@ -1,17 +1,18 @@
-import { ServiceIcon } from './ServiceIcon.tsx'
 import { Button } from './Button.tsx'
 
 type ServiceCardProps = {
   title: string
   description: string
-  icon: 'heater' | 'drain' | 'commercial' | 'remodel'
+  icon: string
 }
 
 export function ServiceCard({ title, description, icon }: ServiceCardProps) {
   return (
     <article className="interactive-card group flex h-full flex-col items-center rounded-2xl border border-slate-200 bg-white p-5 text-center shadow-sm">
-      <ServiceIcon icon={icon} />
-      <h3 className="mt-3 text-xl font-semibold tracking-tight text-cyan-700">{title}</h3>
+      <span className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--theme-primary-100)] text-2xl" aria-hidden="true">
+        {icon}
+      </span>
+      <h3 className="mt-3 text-xl font-semibold tracking-tight text-[var(--theme-primary-700)]">{title}</h3>
       <p className="mt-2.5 flex-1 text-sm leading-6 text-slate-600">{description}</p>
       <Button
         href="#contact"
@@ -19,12 +20,12 @@ export function ServiceCard({ title, description, icon }: ServiceCardProps) {
         className="group mt-5 flex items-center justify-center gap-1.5 text-xs tracking-wide"
         size="sm"
       >
-        <span className="leading-none text-cyan-700 transition-all duration-200 group-hover:text-cyan-500 group-hover:underline group-hover:underline-offset-4">
+        <span className="leading-none text-[var(--theme-primary-700)] transition-all duration-200 group-hover:text-[var(--theme-primary-500)] group-hover:underline group-hover:underline-offset-4">
           Read more
         </span>
         <svg
           viewBox="0 0 20 20"
-          className="h-3 w-3 text-cyan-700 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-cyan-500"
+          className="h-3 w-3 text-[var(--theme-primary-700)] transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-[var(--theme-primary-500)]"
           fill="currentColor"
           aria-hidden="true"
         >

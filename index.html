@@ -13,6 +13,19 @@
     <title>plumber-in-dc</title>
   </head>
   <body>
+    <form name="lead-capture-form" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="tel" name="phone" />
+      <input type="text" name="service" />
+      <textarea name="details"></textarea>
+      <input type="text" name="bot-field" />
+    </form>
+    <form name="emergency-callback-form" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="tel" name="phone" />
+      <input type="text" name="issue" />
+      <input type="text" name="bot-field" />
+    </form>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

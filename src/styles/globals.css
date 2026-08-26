@@ -1,7 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap");
 @import "tailwindcss";
 
 :root {
 	--header-anchor-offset: clamp(7.5rem, 12vw, 9.5rem);
+	
+	/* Theme tokens: edit these values to re-theme the whole template */
+	--theme-font-body: "Manrope", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	--theme-font-heading: "Sora", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	--theme-page-bg: #f8fafc;
+	--theme-page-glow-1: #dbeafe;
+	--theme-page-glow-2: #f1f5f9;
+	--theme-primary-50: #f0f9ff;
+	--theme-primary-100: #e0f2fe;
+	--theme-primary-300: #7dd3fc;
+	--theme-primary-500: #0ea5e9;
+	--theme-primary-600: #0284c7;
+	--theme-primary-700: #0369a1;
+	--theme-primary-900: #0c4a6e;
+	--theme-accent-500: #f97316;
+	--theme-accent-600: #ea580c;
 }
 
 html {
@@ -26,11 +43,11 @@ body,
 
 body {
 	margin: 0;
-	font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	font-family: var(--theme-font-body);
 	background:
-		radial-gradient(circle at 10% 10%, #e0f2fe 0%, rgba(224, 242, 254, 0) 40%),
-		radial-gradient(circle at 90% 20%, #f8fafc 0%, rgba(248, 250, 252, 0) 45%),
-		#f8fafc;
+		radial-gradient(circle at 10% 10%, var(--theme-page-glow-1) 0%, rgba(224, 242, 254, 0) 40%),
+		radial-gradient(circle at 90% 20%, var(--theme-page-glow-2) 0%, rgba(248, 250, 252, 0) 45%),
+		var(--theme-page-bg);
 }
 
 h1,
@@ -39,7 +56,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: "Roboto Slab", Georgia, "Times New Roman", serif;
+	font-family: var(--theme-font-heading);
 }
 
 .interactive-card {
@@ -49,12 +66,12 @@ h6 {
 .interactive-card:hover {
 	transform: translateY(-2px);
 	box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
-	border-color: #bae6fd;
+	border-color: var(--theme-primary-100);
 }
 
 .interactive-card:focus-within {
-	box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.16);
-	border-color: #67e8f9;
+	box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.16);
+	border-color: var(--theme-primary-300);
 }
 
 .interactive-btn {
@@ -72,7 +89,7 @@ h6 {
 }
 
 .interactive-btn:focus-visible {
-	outline: 2px solid #22d3ee;
+	outline: 2px solid var(--theme-primary-500);
 	outline-offset: 2px;
 }
 

@@ -1,17 +1,24 @@
 import { useEffect, useState } from 'react'
 import { Container } from './Container.tsx'
+import type { BusinessData, LinkItem } from '../../lib/siteData.ts'
 
-export function Header() {
-  const [activeItem, setActiveItem] = useState('home')
+type HeaderProps = {
+  business: BusinessData
+  navigation: LinkItem[]
+}
+
+export function Header({ business, navigation }: HeaderProps) {
+  const [activeItem, setActiveItem] = useState('')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
-  const navItems = [
-    { key: 'home', href: '#home', label: 'Home' },
-    { key: 'services', href: '#services', label: 'Services' },
-    { key: 'video', href: '#video', label: 'Video' },
-    { key: 'about', href: '#about', label: 'About Us' },
-    { key: 'contact', href: '#contact', label: 'Contact Us' },
-  ] as const
+  const nameParts = business.name.split(' ').filter(Boolean)
+  const brandMark = nameParts.slice(0, 2).map((part) => part[0]).join('').toUpperCase() || 'PL'
+  const brandText = business.name
+
+  const navItems = navigation.map((item) => ({
+    ...item,
+    key: item.href.replace('#', '') || 'home',
+  }))
 
   useEffect(() => {
     if (typeof window === 'undefined') {
@@ -21,29 +28,13 @@ export function Header() {
     const resolveActive = () => {
       const hash = window.location.hash.replace('#', '')
 
-      if (!hash || hash === 'home') {
-        setActiveItem('home')
+      if (!hash) {
+        setActiveItem(navItems[0]?.key ?? '')
         return
       }
 
-      if (hash.startsWith('services') || hash.startsWith('drainage') || hash.startsWith('water-')) {
-        setActiveItem('services')
-        return
-      }
-
-      if (hash === 'video') {
-        setActiveItem('video')
-        return
-      }
-
-      if (hash === 'about') {
-        setActiveItem('about')
-        return
-      }
-
-      if (hash === 'contact') {
-        setActiveItem('contact')
-      }
+      const matched = navItems.find((item) => item.key === hash)
+      setActiveItem(matched?.key ?? hash)
     }
 
     resolveActive()
@@ -64,70 +55,38 @@ export function Header() {
   }, [])
 
   const navLinkClass = (key: string) =>
-    `interactive-btn header-btn-soft inline-flex rounded-xl px-3.5 py-2 transition ${
+    `interactive-btn header-btn-soft inline-flex rounded-full px-4 py-2 transition ${
       activeItem === key
-        ? 'bg-cyan-600 text-white hover:bg-cyan-500'
-        : 'hover:bg-slate-100 hover:text-cyan-700'
+        ? 'bg-[var(--theme-primary-600)] text-white hover:bg-[var(--theme-primary-500)]'
+        : 'bg-transparent text-slate-700 hover:bg-slate-100 hover:text-[var(--theme-primary-700)]'
     }`
 
   return (
-    <header className="sticky top-0 z-30 border-b border-cyan-100/70 bg-white/85 backdrop-blur-lg">
-      <Container className="py-4">
-        <div className="flex flex-col gap-3">
-          <div className="flex items-center justify-between gap-4">
-            <div className="flex items-center gap-4">
-              <a href="#home" className="inline-flex items-center gap-3" aria-label="Plumber in DC home">
-                <span className="inline-flex items-center gap-2 px-1 py-0.5">
-                  <span className="text-[1.95rem] font-black uppercase leading-none tracking-[-0.08em] text-cyan-500 sm:text-[2.1rem]">
-                    DC
-                  </span>
-                  <span className="px-1.5 py-0.5 text-base font-extrabold uppercase leading-none tracking-[0.05em] text-slate-900 sm:text-lg">
-                    Plumbing
-                  </span>
-                </span>
-              </a>
+    <header className="sticky top-0 z-30 border-b border-[var(--theme-primary-100)]/80 bg-white/70 backdrop-blur-xl">
+      <Container className="py-3">
+        <div className="rounded-2xl border border-[var(--theme-primary-100)] bg-white/90 p-3 shadow-sm shadow-slate-200/70">
+          <div className="flex items-center justify-between gap-3">
+            <a href="#home" className="inline-flex min-w-0 items-center gap-3" aria-label={`${business.name} home`}>
+              <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[var(--theme-primary-50)] text-lg font-black tracking-tight text-[var(--theme-primary-700)]">
+                {brandMark}
+              </span>
+              <span className="truncate text-sm font-extrabold uppercase tracking-[0.08em] text-slate-900 sm:text-base">
+                {brandText}
+              </span>
+            </a>
 
-              <div className="hidden items-center gap-1.5 md:flex">
-                <a
-                  href="#"
-                  aria-label="Facebook"
-                  className="interactive-btn header-btn-soft inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white text-sm font-bold text-slate-600 transition hover:-translate-y-0.5 hover:border-cyan-200 hover:text-cyan-700"
-                >
-                  <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true" fill="currentColor">
-                    <path d="M13.5 8H16V5h-2.5C10.5 5 9 6.8 9 9.5V12H7v3h2v6h3v-6h3l.5-3H12V9.8c0-1.1.3-1.8 1.5-1.8z" />
-                  </svg>
-                </a>
-                <a
-                  href="#"
-                  aria-label="X"
-                  className="interactive-btn header-btn-soft inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white text-sm font-bold text-slate-600 transition hover:-translate-y-0.5 hover:border-cyan-200 hover:text-cyan-700"
-                >
-                  <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true" fill="currentColor">
-                    <path d="M18.9 3H22l-6.8 7.8L23 21h-6.1l-4.8-6.3L6.6 21H3.5l7.3-8.3L1 3h6.2l4.3 5.7L18.9 3zm-1.1 16h1.7L6.2 5H4.4l13.4 14z" />
-                  </svg>
-                </a>
-                <a
-                  href="#"
-                  aria-label="Instagram"
-                  className="interactive-btn header-btn-soft inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white text-sm font-bold text-slate-600 transition hover:-translate-y-0.5 hover:border-cyan-200 hover:text-cyan-700"
-                >
-                  <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true" fill="currentColor">
-                    <path d="M12 7.1A4.9 4.9 0 1012 17a4.9 4.9 0 000-9.8zm0 8.1A3.2 3.2 0 1112 8.8a3.2 3.2 0 010 6.4zm6.2-8.3a1.1 1.1 0 11-2.2 0 1.1 1.1 0 012.2 0z" />
-                    <path d="M12 2.8h4.3c2.9 0 4.9 2 4.9 4.9V16c0 2.9-2 4.9-4.9 4.9H7.7c-2.9 0-4.9-2-4.9-4.9V7.7c0-2.9 2-4.9 4.9-4.9H12zm0-1.8H7.7C3.8 1 1 3.8 1 7.7V16c0 3.9 2.8 6.7 6.7 6.7H16c3.9 0 6.7-2.8 6.7-6.7V7.7C22.7 3.8 19.9 1 16 1H12z" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-
-            <div className="hidden text-right md:block">
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-700 sm:text-sm">
-                Same-day repairs available
-              </p>
+            <div className="hidden items-center gap-3 md:flex">
               <a
-                href="tel:+12028100624"
-                className="inline-flex bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-[1.7rem] font-black tracking-tight text-transparent sm:text-[2rem]"
+                href={business.phoneHref}
+                className="interactive-btn inline-flex items-center justify-center rounded-full border border-[var(--theme-primary-100)] px-4 py-2 text-sm font-bold text-slate-700 hover:border-[var(--theme-primary-300)] hover:text-[var(--theme-primary-700)]"
               >
-                (202) 810-0624
+                {business.phone}
+              </a>
+              <a
+                href="#lead-form"
+                className="interactive-btn inline-flex items-center justify-center rounded-full bg-[var(--theme-primary-600)] px-4 py-2 text-sm font-bold text-white hover:bg-[var(--theme-primary-500)]"
+              >
+                Get Estimate
               </a>
             </div>
 
@@ -146,26 +105,28 @@ export function Header() {
                 )}
               </svg>
             </button>
-
           </div>
 
-          <div className="flex flex-col gap-2 md:hidden">
-            <div className="text-left md:text-right">
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-700 sm:text-sm">
-                Same-day repairs available
-              </p>
-              <a
-                href="tel:+12028100624"
-                className="inline-flex bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-[1.7rem] font-black tracking-tight text-transparent sm:text-[2rem]"
-              >
-                (202) 810-0624
-              </a>
-            </div>
-
-          </div>
+          <nav className="mt-3 hidden border-t border-slate-100 pt-3 lg:block">
+            <ul className="flex flex-wrap justify-start gap-1.5 text-sm font-semibold text-slate-700">
+              {navItems.map((item) => (
+                <li key={item.key}>
+                  <a
+                    href={item.href}
+                    className={navLinkClass(item.key)}
+                    onClick={() => {
+                      setActiveItem(item.key)
+                    }}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
           {isMobileMenuOpen ? (
-            <div className="mt-3 rounded-2xl border border-slate-200 bg-white p-1.5 shadow-sm shadow-slate-200/70 md:hidden">
+            <div className="mt-3 rounded-2xl border border-slate-200 bg-white p-2 shadow-sm md:hidden">
               <ul className="flex flex-col gap-1 text-sm font-semibold text-slate-700">
                 {navItems.map((item) => (
                   <li key={item.key}>
@@ -181,37 +142,27 @@ export function Header() {
                     </a>
                   </li>
                 ))}
-                <li>
-                  <a
-                    href="tel:+12028100624"
-                    className="interactive-btn mt-1 inline-flex w-full items-center justify-center rounded-xl bg-cyan-600 px-3.5 py-2.5 text-white hover:bg-cyan-500"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Call Now: (202) 810-0624
-                  </a>
-                </li>
               </ul>
+
+              <div className="mt-3 grid gap-2">
+                <a
+                  href={business.phoneHref}
+                  className="interactive-btn inline-flex items-center justify-center rounded-full border border-[var(--theme-primary-100)] px-4 py-2.5 text-sm font-bold text-slate-700 hover:border-[var(--theme-primary-300)] hover:text-[var(--theme-primary-700)]"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {business.phone}
+                </a>
+                <a
+                  href="#lead-form"
+                  className="interactive-btn inline-flex items-center justify-center rounded-full bg-[var(--theme-primary-600)] px-4 py-2.5 text-sm font-bold text-white hover:bg-[var(--theme-primary-500)]"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Get Estimate
+                </a>
+              </div>
             </div>
           ) : null}
         </div>
-
-        <nav className="mt-4 hidden rounded-2xl border border-slate-200 bg-white/90 p-1.5 shadow-sm shadow-slate-200/70 md:block">
-          <ul className="flex flex-wrap gap-1 text-sm font-semibold text-slate-700">
-            {navItems.map((item) => (
-              <li key={item.key}>
-                <a
-                  href={item.href}
-                  className={navLinkClass(item.key)}
-                  onClick={() => {
-                    setActiveItem(item.key)
-                  }}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
       </Container>
     </header>
   )

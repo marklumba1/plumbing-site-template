@@ -1,0 +1,284 @@
+{
+  "business": {
+    "name": "Your Plumbing Company",
+    "tagline": "Fast, licensed plumbing support for homes and businesses.",
+    "phone": "(000) 000-0000",
+    "phoneHref": "tel:+10000000000",
+    "email": "service@yourplumbingcompany.com",
+    "emailHref": "mailto:service@yourplumbingcompany.com",
+    "address": "123 Main St, Your City, ST 00000",
+    "hours": "Open 24 Hours",
+    "license": "Licensed & Insured"
+  },
+  "navigation": [
+    { "label": "Home", "href": "#home" },
+    { "label": "Services", "href": "#services" },
+    { "label": "Gallery", "href": "#gallery" },
+    { "label": "Process", "href": "#process" },
+    { "label": "About", "href": "#about" },
+    { "label": "Reviews", "href": "#reviews" },
+    { "label": "Service Areas", "href": "#service-areas" },
+    { "label": "FAQ", "href": "#faq" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "hero": {
+    "eyebrow": "Top Rated Local Plumbing Team",
+    "title": "Reliable Plumbing Help When You Need It Most",
+    "description": "From emergency repairs to full installations, we deliver clean workmanship, fast response, and straightforward pricing.",
+    "highlights": [
+      "24/7 emergency service",
+      "Residential and commercial plumbing",
+      "Transparent, upfront pricing",
+      "Same-day appointments available"
+    ],
+    "primaryCta": {
+      "label": "Call Now",
+      "href": "#contact"
+    },
+    "secondaryCta": {
+      "label": "View Services",
+      "href": "#services"
+    }
+  },
+  "leadForm": {
+    "formName": "lead-capture-form",
+    "eyebrow": "Request Service",
+    "title": "Get a Fast Plumbing Estimate",
+    "description": "Share your details and we will call you back shortly to confirm your appointment.",
+    "submitLabel": "Get My Estimate",
+    "fields": {
+      "name": {
+        "label": "Full Name",
+        "placeholder": "Jane Doe"
+      },
+      "phone": {
+        "label": "Phone Number",
+        "placeholder": "(000) 000-0000"
+      },
+      "service": {
+        "label": "Service Needed",
+        "placeholder": "Drain cleaning, leak repair, water heater..."
+      },
+      "details": {
+        "label": "Project Details",
+        "placeholder": "Tell us what is happening and your preferred schedule."
+      }
+    }
+  },
+  "emergencyBanner": {
+    "eyebrow": "Emergency Plumbing",
+    "title": "Burst Pipe or Overflow? We Can Dispatch Fast",
+    "description": "Our emergency team is available day and night for urgent plumbing issues that cannot wait.",
+    "primaryCta": {
+      "label": "Call Emergency Line",
+      "href": "#contact"
+    },
+    "secondaryCta": {
+      "label": "Request Callback",
+      "href": "#home"
+    },
+    "badges": [
+      "24/7 Live Dispatch",
+      "Fully Stocked Service Vans",
+      "Licensed Technicians"
+    ],
+    "form": {
+      "formName": "emergency-callback-form",
+      "title": "Emergency Callback",
+      "submitLabel": "Request Urgent Callback",
+      "fields": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Your full name"
+        },
+        "phone": {
+          "label": "Phone",
+          "placeholder": "Best number to reach you"
+        },
+        "issue": {
+          "label": "Issue",
+          "placeholder": "Burst pipe, overflow, leak..."
+        }
+      }
+    }
+  },
+  "trustIndicators": {
+    "eyebrow": "Why Customers Trust Us",
+    "ariaLabel": "Trust indicators",
+    "title": "Trusted By Homeowners & Property Managers",
+    "items": [
+      { "label": "Years Experience", "value": "25+" },
+      { "label": "Emergency Response", "value": "24/7" },
+      { "label": "Average Rating", "value": "4.9/5" },
+      { "label": "Jobs Completed", "value": "8,000+" }
+    ]
+  },
+  "services": {
+    "eyebrow": "Core Services",
+    "title": "Core Plumbing Services",
+    "description": "Customize this list per location or niche while keeping the same high-converting layout.",
+    "items": [
+      {
+        "title": "Drain Cleaning",
+        "description": "Clear tough clogs with professional equipment and camera diagnostics.",
+        "icon": "🛠️"
+      },
+      {
+        "title": "Water Heater Repair",
+        "description": "Gas and electric water heater repair, replacement, and upgrades.",
+        "icon": "🔥"
+      },
+      {
+        "title": "Leak Detection",
+        "description": "Pinpoint hidden leaks quickly to prevent water damage and high bills.",
+        "icon": "💧"
+      },
+      {
+        "title": "Pipe Installation",
+        "description": "Code-compliant piping for remodels, new builds, and system upgrades.",
+        "icon": "🏠"
+      }
+    ]
+  },
+  "workGallery": {
+    "eyebrow": "Recent Projects",
+    "title": "See Our Plumbing Work",
+    "description": "Use this image section to showcase completed jobs, equipment quality, and clean workmanship.",
+    "images": [
+      {
+        "src": "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=1600&q=80",
+        "alt": "Technician repairing under-sink plumbing",
+        "caption": "Emergency leak repair"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=1600&q=80",
+        "alt": "New water heater installation",
+        "caption": "Water heater replacement"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1600&q=80",
+        "alt": "Drain cleaning service in progress",
+        "caption": "Drain and sewer cleaning"
+      }
+    ]
+  },
+  "process": {
+    "eyebrow": "How It Works",
+    "title": "Simple Service Process",
+    "description": "Use this section to explain your booking and repair flow in a way customers can trust.",
+    "steps": [
+      {
+        "title": "1. Call or Submit Form",
+        "description": "Tell us the issue and preferred schedule. We gather the details up front.",
+        "imageSrc": "https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&w=1400&q=80",
+        "imageAlt": "Homeowner using phone to book plumbing service"
+      },
+      {
+        "title": "2. Diagnose & Quote",
+        "description": "A licensed plumber inspects the problem and provides a clear, upfront quote.",
+        "imageSrc": "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1400&q=80",
+        "imageAlt": "Plumber inspecting pipes with diagnostic tools"
+      },
+      {
+        "title": "3. Repair or Install",
+        "description": "We complete the approved work using quality materials and code-compliant methods.",
+        "imageSrc": "https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=1400&q=80",
+        "imageAlt": "Technician completing plumbing repair"
+      },
+      {
+        "title": "4. Final Walkthrough",
+        "description": "Before leaving, we confirm everything works properly and answer your questions.",
+        "imageSrc": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1400&q=80",
+        "imageAlt": "Technician discussing completed work with homeowner"
+      }
+    ]
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "About Our Team",
+    "paragraphs": [
+      "We are a local plumbing company focused on honest communication, clean job sites, and long-term fixes.",
+      "Our technicians are trained, licensed, and equipped to solve everything from minor leaks to complex plumbing emergencies."
+    ],
+    "highlights": [
+      "Locally owned and operated",
+      "Licensed & insured technicians",
+      "Clear communication from start to finish",
+      "Backed by workmanship guarantee"
+    ]
+  },
+  "reviews": {
+    "eyebrow": "Reviews",
+    "title": "What Customers Say",
+    "items": [
+      {
+        "name": "Angela R.",
+        "location": "North Side",
+        "rating": 5,
+        "quote": "They showed up fast, fixed our burst pipe, and explained every step. Excellent service."
+      },
+      {
+        "name": "Marcus T.",
+        "location": "Downtown",
+        "rating": 5,
+        "quote": "Great communication and fair pricing. The new water heater install was clean and professional."
+      },
+      {
+        "name": "Sharon L.",
+        "location": "West End",
+        "rating": 5,
+        "quote": "Best plumbing team we've worked with. Quick response and no surprise costs."
+      }
+    ]
+  },
+  "serviceAreas": {
+    "eyebrow": "Coverage",
+    "title": "Service Areas",
+    "description": "Edit these cities or neighborhoods for each site while keeping the same section layout.",
+    "areas": [
+      "Downtown",
+      "North Side",
+      "South Side",
+      "East Side",
+      "West Side",
+      "Old Town",
+      "Uptown",
+      "Suburban Area"
+    ]
+  },
+  "faq": {
+    "eyebrow": "FAQs",
+    "title": "Common Plumbing Questions",
+    "description": "Answer typical customer concerns to build trust and reduce booking friction.",
+    "items": [
+      {
+        "question": "Do you offer emergency plumbing service?",
+        "answer": "Yes. We provide emergency response for urgent issues like burst pipes, severe leaks, and major clogs."
+      },
+      {
+        "question": "Do you provide upfront pricing?",
+        "answer": "Yes. We diagnose the issue first and provide a clear quote before we start work."
+      },
+      {
+        "question": "What plumbing services do you handle?",
+        "answer": "We handle drain cleaning, leak repair, water heater service, fixture installs, repiping, and more."
+      },
+      {
+        "question": "Are your plumbers licensed and insured?",
+        "answer": "Yes. Our technicians are trained, licensed where required, and fully insured."
+      }
+    ]
+  },
+  "cta": {
+    "eyebrow": "Call To Action",
+    "title": "Need a Plumber Today?",
+    "description": "Call now for rapid dispatch, honest pricing, and expert repairs done right the first time.",
+    "buttonLabel": "Book Service",
+    "buttonHref": "#contact",
+    "contactCards": {
+      "addressLabel": "Address",
+      "emailLabel": "Email",
+      "hoursLabel": "Hours"
+    }
+  }
+}

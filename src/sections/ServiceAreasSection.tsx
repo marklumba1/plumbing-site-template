@@ -1,0 +1,51 @@
+import { Container } from '../components/layout/Container.tsx'
+import type { ServiceAreasData } from '../lib/siteData.ts'
+
+type ServiceAreasSectionProps = {
+  data: ServiceAreasData
+}
+
+export function ServiceAreasSection({ data }: ServiceAreasSectionProps) {
+  const areaCount = data.areas.length
+
+  return (
+    <section id="service-areas" className="py-12">
+      <Container>
+        <div className="overflow-hidden rounded-3xl border border-[var(--theme-primary-100)] bg-white shadow-sm">
+          <div className="bg-linear-to-r from-[var(--theme-primary-50)] via-white to-[var(--theme-primary-50)] p-6 sm:p-8">
+            <div className="grid gap-6 lg:grid-cols-[1fr_1.35fr] lg:gap-8">
+              <div className="rounded-2xl border border-[var(--theme-primary-100)] bg-white p-5">
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--theme-primary-700)]">
+                  {data.eyebrow}
+                </p>
+                <h2 className="mt-2 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">{data.title}</h2>
+                <p className="mt-3 text-base leading-7 text-slate-700">{data.description}</p>
+
+                <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[var(--theme-primary-100)] bg-[var(--theme-primary-50)] px-3 py-1.5 text-xs font-bold uppercase tracking-[0.12em] text-[var(--theme-primary-700)]">
+                  <span className="inline-flex h-2 w-2 rounded-full bg-[var(--theme-primary-600)]" aria-hidden="true"></span>
+                  Serving {areaCount} areas
+                </div>
+              </div>
+
+              <ul className="grid gap-3 sm:grid-cols-2">
+                {data.areas.map((area) => (
+                  <li
+                    key={area}
+                    className="interactive-card flex items-center gap-3 rounded-xl border border-[var(--theme-primary-100)] bg-white px-4 py-3 text-sm font-semibold text-slate-800"
+                  >
+                    <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--theme-primary-50)] text-[var(--theme-primary-700)]" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
+                        <path d="M12 2.5a7.5 7.5 0 0 0-7.5 7.5c0 5.4 7.5 11.5 7.5 11.5s7.5-6.1 7.5-11.5A7.5 7.5 0 0 0 12 2.5Zm0 10.2a2.7 2.7 0 1 1 0-5.4 2.7 2.7 0 0 1 0 5.4Z" />
+                      </svg>
+                    </span>
+                    <span>{area}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+  )
+}

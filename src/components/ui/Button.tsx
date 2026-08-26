@@ -41,10 +41,10 @@ export function Button(props: ButtonProps) {
 
   const variantClass =
     variant === 'primary'
-      ? 'bg-cyan-600 text-white hover:bg-cyan-500'
+      ? 'bg-[var(--theme-primary-600)] text-white hover:bg-[var(--theme-primary-500)]'
       : variant === 'link'
-        ? 'text-cyan-700 hover:text-cyan-500'
-      : 'border border-slate-300 bg-white text-slate-700 hover:border-cyan-300 hover:text-cyan-700'
+        ? 'text-[var(--theme-primary-700)] hover:text-[var(--theme-primary-500)]'
+      : 'border border-slate-300 bg-white text-slate-700 hover:border-[var(--theme-primary-300)] hover:text-[var(--theme-primary-700)]'
 
   const sizeClass =
     variant === 'link'

@@ -1,6 +1,6 @@
-# Plumber in DC Landing Page
+# Plumber Site Template
 
-A modern, component-based plumbing service landing page built with React, TypeScript, Vite, and Tailwind CSS.
+A reusable, component-based template for plumbing landing pages built with React, TypeScript, Vite, and Tailwind CSS.
 
 ## Stack
 
@@ -11,12 +11,59 @@ A modern, component-based plumbing service landing page built with React, TypeSc
 
 ## Features
 
+- Multi-section conversion-focused layout with common plumbing sections:
+  - Hero
+  - Lead form
+  - Emergency banner (with callback form)
+  - Trust indicators
+  - Services
+  - Work gallery
+  - Process (How it works)
+  - About
+  - Reviews
+  - Service areas
+  - FAQ
+  - CTA
+- Fully data-driven content from `src/data/siteData.json`
+- Reusable image components and stock-photo-ready gallery support
+- Netlify form integration (lead form + emergency callback form)
 - Sticky header navigation with active section states
 - Smooth anchor scrolling with header-safe section offsets
-- Reusable UI components for buttons, cards, and checklist sections
-- Embedded YouTube video section
-- Contact section with map embed and modern contact cards
 - Mobile-friendly responsive layout
+
+## Edit Site Content
+
+All business details, section copy, navigation, forms, gallery images, FAQs, and CTAs are centralized in:
+
+`src/data/siteData.json`
+
+Duplicate this project for a new plumbing site and only update that file to swap content.
+
+## Edit Theme
+
+To change colors and fonts for the whole template, edit only:
+
+`src/styles/globals.css`
+
+Update the `:root` theme tokens at the top of the file.
+
+## Netlify Forms
+
+This template includes two Netlify-ready forms:
+
+- Lead capture form (`lead-capture-form`)
+- Emergency callback form (`emergency-callback-form`)
+
+Form UI lives in:
+
+- `src/sections/LeadFormSection.tsx`
+- `src/sections/EmergencyBannerSection.tsx`
+
+Hidden static form declarations for Netlify detection are in:
+
+- `index.html`
+
+If you change a form name in `src/data/siteData.json`, update the matching hidden form `name` in `index.html`.
 
 ## Getting Started
 
@@ -57,8 +104,8 @@ npm run preview
 src/
   app/
     App.tsx
-  assets/
-    about-plumber.png
+  data/
+    siteData.json
   components/
     layout/
       Container.tsx
@@ -66,25 +113,29 @@ src/
       Header.tsx
     ui/
       Button.tsx
-      ChecklistContentSection.tsx
+      ImageCard.tsx
       ServiceCard.tsx
-      ServiceIcon.tsx
   lib/
-    services.ts
+    siteData.ts
   sections/
     AboutSection.tsx
-    CompanyHighlightsSection.tsx
     CtaSection.tsx
-    DrainageSection.tsx
-    EmergencyProjectsSection.tsx
+    EmergencyBannerSection.tsx
+    FaqSection.tsx
     FeaturesSection.tsx
     HeroSection.tsx
-    VideoSection.tsx
-    WaterPumpSection.tsx
-    WaterTankCleaningSection.tsx
+    LeadFormSection.tsx
+    ProcessSection.tsx
+    ReviewsSection.tsx
+    ServiceAreasSection.tsx
+    TrustIndicatorsSection.tsx
+    WorkGallerySection.tsx
   styles/
     globals.css
   main.tsx
+
+public/
+  images/
 ```
 
 ## Deployment
@@ -96,6 +147,3 @@ Typical flow:
 1. Run npm run build
 2. Deploy the dist folder
 
-## Repository
-
-GitHub: https://github.com/marklumba1/dc-plumbing
