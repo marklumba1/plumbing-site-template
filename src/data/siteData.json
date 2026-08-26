@@ -22,9 +22,19 @@
     { "label": "Contact", "href": "#contact" }
   ],
   "hero": {
+    "mode": "background-image",
     "eyebrow": "Top Rated Local Plumbing Team",
     "title": "Reliable Plumbing Help When You Need It Most",
     "description": "From emergency repairs to full installations, we deliver clean workmanship, fast response, and straightforward pricing.",
+    "media": {
+      "type": "image",
+      "src": "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1800&q=80",
+      "alt": "Professional plumber repairing pipes under a sink"
+    },
+    "insideMedia": {
+      "src": "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=1200&q=80",
+      "alt": "Plumber tightening pipe connection with wrench"
+    },
     "highlights": [
       "24/7 emergency service",
       "Residential and commercial plumbing",

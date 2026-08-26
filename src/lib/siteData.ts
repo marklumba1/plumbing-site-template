@@ -18,13 +18,35 @@ export type BusinessData = {
 }
 
 export type HeroData = {
+  mode?: 'split' | 'background-image' | 'background-video'
   eyebrow: string
   title: string
   description: string
   highlights: string[]
   primaryCta: LinkItem
   secondaryCta: LinkItem
+  media?: HeroMediaData
+  insideMedia?: {
+    src: string
+    alt: string
+  }
 }
+
+export type HeroMediaData =
+  | {
+      type: 'image'
+      src: string
+      alt: string
+    }
+  | {
+      type: 'video'
+      src: string
+      poster?: string
+      autoPlay?: boolean
+      loop?: boolean
+      muted?: boolean
+      controls?: boolean
+    }
 
 export type LeadFormData = {
   formName: string
