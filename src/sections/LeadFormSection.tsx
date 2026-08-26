@@ -1,11 +1,15 @@
 import { Container } from '../components/layout/Container.tsx'
+import { FormSuccessModal } from '../components/ui/FormSuccessModal.tsx'
 import type { LeadFormData } from '../lib/siteData.ts'
+import { useNetlifyFormSubmission } from '../lib/useNetlifyFormSubmission.ts'
 
 type LeadFormSectionProps = {
   data: LeadFormData
 }
 
 export function LeadFormSection({ data }: LeadFormSectionProps) {
+  const { isSubmitting, isSuccessOpen, submitError, handleSubmit, closeSuccessModal } = useNetlifyFormSubmission()
+
   return (
     <section id="lead-form" className="py-8 sm:py-10">
       <Container>
@@ -21,6 +25,7 @@ export function LeadFormSection({ data }: LeadFormSectionProps) {
               name={data.formName}
               method="POST"
               action="/"
+              onSubmit={handleSubmit}
               data-netlify="true"
               data-netlify-honeypot="bot-field"
               className="rounded-2xl border border-[var(--theme-primary-100)] bg-[var(--theme-primary-50)] p-4 sm:p-5"
@@ -79,14 +84,26 @@ export function LeadFormSection({ data }: LeadFormSectionProps) {
 
               <button
                 type="submit"
+                disabled={isSubmitting}
                 className="interactive-btn mt-4 inline-flex w-full items-center justify-center rounded-full bg-[var(--theme-primary-600)] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[var(--theme-primary-500)]"
               >
-                {data.submitLabel}
+                {isSubmitting ? 'Submitting...' : data.submitLabel}
               </button>
+
+              {submitError ? (
+                <p className="mt-3 text-sm font-semibold text-red-600">{submitError}</p>
+              ) : null}
             </form>
           </div>
         </div>
       </Container>
+
+      <FormSuccessModal
+        isOpen={isSuccessOpen}
+        title="Thank you, we got your request."
+        message="Our team will review your details and contact you shortly."
+        onClose={closeSuccessModal}
+      />
     </section>
   )
 }

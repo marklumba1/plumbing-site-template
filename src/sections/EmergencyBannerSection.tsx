@@ -1,11 +1,15 @@
 import { Container } from '../components/layout/Container.tsx'
+import { FormSuccessModal } from '../components/ui/FormSuccessModal.tsx'
 import type { EmergencyBannerData } from '../lib/siteData.ts'
+import { useNetlifyFormSubmission } from '../lib/useNetlifyFormSubmission.ts'
 
 type EmergencyBannerSectionProps = {
   data: EmergencyBannerData
 }
 
 export function EmergencyBannerSection({ data }: EmergencyBannerSectionProps) {
+  const { isSubmitting, isSuccessOpen, submitError, handleSubmit, closeSuccessModal } = useNetlifyFormSubmission()
+
   return (
     <section className="py-7 sm:py-8">
       <Container>
@@ -44,6 +48,7 @@ export function EmergencyBannerSection({ data }: EmergencyBannerSectionProps) {
               name={data.form.formName}
               method="POST"
               action="/"
+              onSubmit={handleSubmit}
               data-netlify="true"
               data-netlify-honeypot="bot-field"
               className="rounded-2xl border border-white/30 bg-white/10 p-4 backdrop-blur sm:p-5"
@@ -94,14 +99,26 @@ export function EmergencyBannerSection({ data }: EmergencyBannerSectionProps) {
 
               <button
                 type="submit"
+                disabled={isSubmitting}
                 className="interactive-btn mt-4 inline-flex w-full items-center justify-center rounded-full border border-white/50 bg-white px-4 py-2 text-sm font-semibold text-[var(--theme-primary-900)] hover:bg-[var(--theme-primary-50)]"
               >
-                {data.form.submitLabel}
+                {isSubmitting ? 'Submitting...' : data.form.submitLabel}
               </button>
+
+              {submitError ? (
+                <p className="mt-3 text-sm font-semibold text-rose-100">{submitError}</p>
+              ) : null}
             </form>
           </div>
         </div>
       </Container>
+
+      <FormSuccessModal
+        isOpen={isSuccessOpen}
+        title="Emergency callback request received."
+        message="Our dispatch team will contact you as quickly as possible."
+        onClose={closeSuccessModal}
+      />
     </section>
   )
 }
