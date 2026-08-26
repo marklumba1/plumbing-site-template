@@ -1,75 +1,101 @@
-# React + TypeScript + Vite
+# Plumber in DC Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, component-based plumbing service landing page built with React, TypeScript, Vite, and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React 19
+- TypeScript
+- Vite 8
+- Tailwind CSS 4
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Sticky header navigation with active section states
+- Smooth anchor scrolling with header-safe section offsets
+- Reusable UI components for buttons, cards, and checklist sections
+- Embedded YouTube video section
+- Contact section with map embed and modern contact cards
+- Mobile-friendly responsive layout
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 1. Install dependencies
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Start development server
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm run dev
 ```
+
+### 3. Build for production
+
+```bash
+npm run build
+```
+
+### 4. Preview production build
+
+```bash
+npm run preview
+```
+
+## Available Scripts
+
+- npm run dev: start Vite dev server
+- npm run build: type-check and produce production bundle
+- npm run preview: preview built app locally
+- npm run lint: run ESLint
+
+## Project Structure
+
+```text
+src/
+  app/
+    App.tsx
+  assets/
+    about-plumber.png
+  components/
+    layout/
+      Container.tsx
+      Footer.tsx
+      Header.tsx
+    ui/
+      Button.tsx
+      ChecklistContentSection.tsx
+      ServiceCard.tsx
+      ServiceIcon.tsx
+  lib/
+    services.ts
+  sections/
+    AboutSection.tsx
+    CompanyHighlightsSection.tsx
+    CtaSection.tsx
+    DrainageSection.tsx
+    EmergencyProjectsSection.tsx
+    FeaturesSection.tsx
+    HeroSection.tsx
+    VideoSection.tsx
+    WaterPumpSection.tsx
+    WaterTankCleaningSection.tsx
+  styles/
+    globals.css
+  main.tsx
+```
+
+## Deployment
+
+This app can be deployed to any static hosting provider that supports Vite build output.
+
+Typical flow:
+
+1. Run npm run build
+2. Deploy the dist folder
+
+## Repository
+
+GitHub: https://github.com/marklumba1/dc-plumbing
