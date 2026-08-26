@@ -1,4 +1,5 @@
 import { Container } from '../components/layout/Container.tsx'
+import { FullBleedSection } from '../components/layout/FullBleedSection.tsx'
 import { ImageCard } from '../components/ui/ImageCard.tsx'
 import type { WorkGalleryData } from '../lib/siteData.ts'
 
@@ -8,7 +9,7 @@ type WorkGallerySectionProps = {
 
 export function WorkGallerySection({ data }: WorkGallerySectionProps) {
   return (
-    <section id="gallery" className="py-12">
+    <FullBleedSection id="gallery" className="py-12" background={data.sectionBackground}>
       <Container>
         <div className="rounded-3xl border border-[var(--theme-primary-100)] bg-white p-6 sm:p-8">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--theme-primary-700)]">{data.eyebrow}</p>
@@ -22,6 +23,6 @@ export function WorkGallerySection({ data }: WorkGallerySectionProps) {
           </div>
         </div>
       </Container>
-    </section>
+    </FullBleedSection>
   )
 }

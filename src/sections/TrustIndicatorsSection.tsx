@@ -1,4 +1,5 @@
 import { Container } from '../components/layout/Container.tsx'
+import { FullBleedSection } from '../components/layout/FullBleedSection.tsx'
 import type { TrustIndicatorsData } from '../lib/siteData.ts'
 
 type TrustIndicatorsSectionProps = {
@@ -7,7 +8,7 @@ type TrustIndicatorsSectionProps = {
 
 export function TrustIndicatorsSection({ data }: TrustIndicatorsSectionProps) {
   return (
-    <section className="py-10" aria-label={data.ariaLabel}>
+    <FullBleedSection className="py-10" ariaLabel={data.ariaLabel} background={data.sectionBackground}>
       <Container>
         <div className="rounded-3xl border border-[var(--theme-primary-100)] bg-white px-5 py-8 shadow-sm sm:px-8">
           <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-[var(--theme-primary-700)]">
@@ -32,6 +33,6 @@ export function TrustIndicatorsSection({ data }: TrustIndicatorsSectionProps) {
           </div>
         </div>
       </Container>
-    </section>
+    </FullBleedSection>
   )
 }

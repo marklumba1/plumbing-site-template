@@ -1,4 +1,5 @@
 import rawSiteData from '../data/siteData.json'
+import type { SectionBackgroundData } from '../components/layout/FullBleedSection.tsx'
 
 export type LinkItem = {
   label: string
@@ -19,6 +20,11 @@ export type BusinessData = {
 
 export type HeroData = {
   mode?: 'split' | 'background-image' | 'background-video'
+  sectionBackground?: SectionBackgroundData
+  overlay?: {
+    image?: string
+    video?: string
+  }
   eyebrow: string
   title: string
   description: string
@@ -49,6 +55,7 @@ export type HeroMediaData =
     }
 
 export type LeadFormData = {
+  sectionBackground?: SectionBackgroundData
   formName: string
   eyebrow: string
   title: string
@@ -75,6 +82,7 @@ export type LeadFormData = {
 }
 
 export type EmergencyBannerData = {
+  sectionBackground?: SectionBackgroundData
   eyebrow: string
   title: string
   description: string
@@ -108,6 +116,7 @@ export type TrustIndicatorItem = {
 }
 
 export type TrustIndicatorsData = {
+  sectionBackground?: SectionBackgroundData
   eyebrow: string
   ariaLabel: string
   title: string
@@ -121,6 +130,7 @@ export type ServiceItem = {
 }
 
 export type ServicesData = {
+  sectionBackground?: SectionBackgroundData
   eyebrow: string
   title: string
   description: string
@@ -134,6 +144,7 @@ export type GalleryImageItem = {
 }
 
 export type WorkGalleryData = {
+  sectionBackground?: SectionBackgroundData
   eyebrow: string
   title: string
   description: string
@@ -141,6 +152,7 @@ export type WorkGalleryData = {
 }
 
 export type AboutData = {
+  sectionBackground?: SectionBackgroundData
   eyebrow: string
   title: string
   paragraphs: string[]
@@ -155,12 +167,14 @@ export type ReviewItem = {
 }
 
 export type ReviewsData = {
+  sectionBackground?: SectionBackgroundData
   eyebrow: string
   title: string
   items: ReviewItem[]
 }
 
 export type ServiceAreasData = {
+  sectionBackground?: SectionBackgroundData
   eyebrow: string
   title: string
   description: string
@@ -168,6 +182,7 @@ export type ServiceAreasData = {
 }
 
 export type CtaData = {
+  sectionBackground?: SectionBackgroundData
   eyebrow: string
   title: string
   description: string
@@ -188,6 +203,7 @@ export type ProcessStepItem = {
 }
 
 export type ProcessData = {
+  sectionBackground?: SectionBackgroundData
   eyebrow: string
   title: string
   description: string
@@ -200,6 +216,7 @@ export type FaqItem = {
 }
 
 export type FaqData = {
+  sectionBackground?: SectionBackgroundData
   eyebrow: string
   title: string
   description: string

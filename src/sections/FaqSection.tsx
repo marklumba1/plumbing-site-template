@@ -1,4 +1,5 @@
 import { Container } from '../components/layout/Container.tsx'
+import { FullBleedSection } from '../components/layout/FullBleedSection.tsx'
 import type { FaqData } from '../lib/siteData.ts'
 
 type FaqSectionProps = {
@@ -7,7 +8,7 @@ type FaqSectionProps = {
 
 export function FaqSection({ data }: FaqSectionProps) {
   return (
-    <section id="faq" className="py-12">
+    <FullBleedSection id="faq" className="py-12" background={data.sectionBackground}>
       <Container>
         <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--theme-primary-700)]">{data.eyebrow}</p>
@@ -38,6 +39,6 @@ export function FaqSection({ data }: FaqSectionProps) {
           </div>
         </div>
       </Container>
-    </section>
+    </FullBleedSection>
   )
 }

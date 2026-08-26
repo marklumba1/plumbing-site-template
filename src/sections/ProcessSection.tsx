@@ -1,4 +1,5 @@
 import { Container } from '../components/layout/Container.tsx'
+import { FullBleedSection } from '../components/layout/FullBleedSection.tsx'
 import type { ProcessData } from '../lib/siteData.ts'
 
 type ProcessSectionProps = {
@@ -7,7 +8,7 @@ type ProcessSectionProps = {
 
 export function ProcessSection({ data }: ProcessSectionProps) {
   return (
-    <section id="process" className="py-12">
+    <FullBleedSection id="process" className="py-12" background={data.sectionBackground}>
       <Container>
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--theme-primary-700)]">{data.eyebrow}</p>
         <h2 className="mt-2 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">{data.title}</h2>
@@ -33,6 +34,6 @@ export function ProcessSection({ data }: ProcessSectionProps) {
           ))}
         </div>
       </Container>
-    </section>
+    </FullBleedSection>
   )
 }

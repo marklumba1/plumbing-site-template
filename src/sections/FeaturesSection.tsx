@@ -1,4 +1,5 @@
 import { Container } from '../components/layout/Container.tsx'
+import { FullBleedSection } from '../components/layout/FullBleedSection.tsx'
 import { ServiceCard } from '../components/ui/ServiceCard.tsx'
 import type { ServicesData } from '../lib/siteData.ts'
 
@@ -8,7 +9,7 @@ type FeaturesSectionProps = {
 
 export function FeaturesSection({ data }: FeaturesSectionProps) {
   return (
-    <section id="services" className="py-10 sm:py-12">
+    <FullBleedSection id="services" className="py-10 sm:py-12" background={data.sectionBackground}>
       <Container>
         <div className="mb-6">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--theme-primary-700)]">
@@ -31,6 +32,6 @@ export function FeaturesSection({ data }: FeaturesSectionProps) {
           ))}
         </div>
       </Container>
-    </section>
+    </FullBleedSection>
   )
 }

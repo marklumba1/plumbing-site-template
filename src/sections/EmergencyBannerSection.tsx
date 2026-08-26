@@ -1,4 +1,5 @@
 import { Container } from '../components/layout/Container.tsx'
+import { FullBleedSection } from '../components/layout/FullBleedSection.tsx'
 import { FormSuccessModal } from '../components/ui/FormSuccessModal.tsx'
 import type { EmergencyBannerData } from '../lib/siteData.ts'
 import { useNetlifyFormSubmission } from '../lib/useNetlifyFormSubmission.ts'
@@ -9,11 +10,18 @@ type EmergencyBannerSectionProps = {
 
 export function EmergencyBannerSection({ data }: EmergencyBannerSectionProps) {
   const { isSubmitting, isSuccessOpen, submitError, handleSubmit, closeSuccessModal } = useNetlifyFormSubmission()
+  const hasSectionBackgroundImage = Boolean(data.sectionBackground?.imageSrc)
 
   return (
-    <section className="py-7 sm:py-8">
+    <FullBleedSection className="py-7 sm:py-8" background={data.sectionBackground}>
       <Container>
-        <div className="interactive-card rounded-3xl border border-slate-200 bg-[var(--theme-primary-900)] p-5 text-white sm:p-6">
+        <div
+          className={`interactive-card rounded-3xl border p-5 text-white sm:p-6 ${
+            hasSectionBackgroundImage
+              ? 'border-white/30 bg-[color:rgba(15,23,42,0.78)] backdrop-blur-sm'
+              : 'border-slate-200 bg-[var(--theme-primary-900)]'
+          }`}
+        >
           <div className="grid gap-6 lg:grid-cols-[1.3fr_1fr] lg:items-start">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--theme-primary-100)]">{data.eyebrow}</p>
@@ -119,6 +127,6 @@ export function EmergencyBannerSection({ data }: EmergencyBannerSectionProps) {
         message="Our dispatch team will contact you as quickly as possible."
         onClose={closeSuccessModal}
       />
-    </section>
+    </FullBleedSection>
   )
 }

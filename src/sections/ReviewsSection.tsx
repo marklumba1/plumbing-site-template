@@ -1,4 +1,5 @@
 import { Container } from '../components/layout/Container.tsx'
+import { FullBleedSection } from '../components/layout/FullBleedSection.tsx'
 import type { ReviewsData } from '../lib/siteData.ts'
 
 type ReviewsSectionProps = {
@@ -11,7 +12,7 @@ function stars(count: number) {
 
 export function ReviewsSection({ data }: ReviewsSectionProps) {
   return (
-    <section id="reviews" className="py-12">
+    <FullBleedSection id="reviews" className="py-12" background={data.sectionBackground}>
       <Container>
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--theme-primary-700)]">
           {data.eyebrow}
@@ -31,6 +32,6 @@ export function ReviewsSection({ data }: ReviewsSectionProps) {
           ))}
         </div>
       </Container>
-    </section>
+    </FullBleedSection>
   )
 }

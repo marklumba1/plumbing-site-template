@@ -1,4 +1,5 @@
 import { Container } from '../components/layout/Container.tsx'
+import { FullBleedSection } from '../components/layout/FullBleedSection.tsx'
 import { Button } from '../components/ui/Button.tsx'
 import type { HeroData } from '../lib/siteData.ts'
 
@@ -15,6 +16,8 @@ export function HeroSection({ data }: HeroSectionProps) {
   const useBackgroundVideo = mode === 'background-video' && Boolean(videoMedia?.src)
   const useBackgroundMedia = useBackgroundImage || useBackgroundVideo
   const hasInsideImage = Boolean(data.insideMedia?.src)
+  const backgroundImageOverlay = data.overlay?.image ?? 'rgba(191,219,254,0.24)'
+  const backgroundVideoOverlay = data.overlay?.video ?? 'linear-gradient(to right, rgba(15,23,42,0.70), rgba(15,23,42,0.55), rgba(15,23,42,0.45))'
 
   if (useBackgroundMedia) {
     return (
@@ -34,7 +37,11 @@ export function HeroSection({ data }: HeroSectionProps) {
           <img src={imageMedia?.src} alt={imageMedia?.alt ?? 'Plumbing service'} className="absolute inset-0 h-full w-full object-cover" />
         )}
 
-        <div className="absolute inset-0 bg-linear-to-r from-slate-900/70 via-slate-900/55 to-slate-900/45" aria-hidden="true" />
+        <div
+          className="absolute inset-0"
+          style={{ background: useBackgroundImage ? backgroundImageOverlay : backgroundVideoOverlay }}
+          aria-hidden="true"
+        />
 
         <Container>
           <div className={hasInsideImage ? 'relative grid gap-6 py-8 sm:py-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-stretch lg:py-12' : 'relative py-8 sm:py-10 lg:py-12'}>
@@ -81,7 +88,7 @@ export function HeroSection({ data }: HeroSectionProps) {
   }
 
   return (
-    <section id="home" className="pb-6 pt-7 sm:pb-8 sm:pt-8">
+    <FullBleedSection id="home" className="pb-6 pt-7 sm:pb-8 sm:pt-8" background={data.sectionBackground}>
       <Container>
         <div className="interactive-card rounded-2xl border border-[var(--theme-primary-100)] bg-linear-to-r from-[var(--theme-primary-50)] via-white to-slate-50 p-5 sm:p-6">
           <div className={hasMedia ? 'grid gap-6 lg:grid-cols-[1.25fr_1fr] lg:items-stretch' : ''}>
@@ -137,6 +144,6 @@ export function HeroSection({ data }: HeroSectionProps) {
           </div>
         </div>
       </Container>
-    </section>
+    </FullBleedSection>
   )
 }

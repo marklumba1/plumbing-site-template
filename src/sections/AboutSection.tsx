@@ -1,4 +1,5 @@
 import { Container } from '../components/layout/Container.tsx'
+import { FullBleedSection } from '../components/layout/FullBleedSection.tsx'
 import type { AboutData } from '../lib/siteData.ts'
 
 type AboutSectionProps = {
@@ -9,7 +10,7 @@ export function AboutSection({ data }: AboutSectionProps) {
   const highlightCount = data.highlights.length
 
   return (
-    <section id="about" className="py-12">
+    <FullBleedSection id="about" className="py-12" background={data.sectionBackground}>
       <Container>
         <div className="overflow-hidden rounded-3xl border border-[var(--theme-primary-100)] bg-white shadow-sm">
           <div className="bg-linear-to-r from-[var(--theme-primary-50)] via-white to-[var(--theme-primary-50)] p-6 sm:p-8">
@@ -50,6 +51,6 @@ export function AboutSection({ data }: AboutSectionProps) {
           </div>
         </div>
       </Container>
-    </section>
+    </FullBleedSection>
   )
 }

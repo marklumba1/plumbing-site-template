@@ -23,6 +23,10 @@
   ],
   "hero": {
     "mode": "background-image",
+    "overlay": {
+      "image": "rgba(0, 0, 0, 0.5)",
+      "video": "linear-gradient(to right, rgba(15,23,42,0.70), rgba(15,23,42,0.55), rgba(15,23,42,0.45))"
+    },
     "eyebrow": "Top Rated Local Plumbing Team",
     "title": "Reliable Plumbing Help When You Need It Most",
     "description": "From emergency repairs to full installations, we deliver clean workmanship, fast response, and straightforward pricing.",
@@ -51,6 +55,9 @@
     }
   },
   "leadForm": {
+    "sectionBackground": {
+      "color": "#ffffff"
+    },
     "formName": "lead-capture-form",
     "eyebrow": "Request Service",
     "title": "Get a Fast Plumbing Estimate",
@@ -76,6 +83,11 @@
     }
   },
   "emergencyBanner": {
+    "sectionBackground": {
+      "imageSrc": "/images/plumbing-pattern.svg",
+      "imageAlt": "Subtle plumbing tools and fixtures line-art pattern",
+      "overlay": "rgba(255, 255, 255, 0.95)"
+    },
     "eyebrow": "Emergency Plumbing",
     "title": "Burst Pipe or Overflow? We Can Dispatch Fast",
     "description": "Our emergency team is available day and night for urgent plumbing issues that cannot wait.",
@@ -113,6 +125,9 @@
     }
   },
   "trustIndicators": {
+    "sectionBackground": {
+      "color": "#ffffff"
+    },
     "eyebrow": "Why Customers Trust Us",
     "ariaLabel": "Trust indicators",
     "title": "Trusted By Homeowners & Property Managers",
@@ -124,6 +139,9 @@
     ]
   },
   "services": {
+    "sectionBackground": {
+      "color": "#eeffff"
+    },
     "eyebrow": "Core Services",
     "title": "Core Plumbing Services",
     "description": "Customize this list per location or niche while keeping the same high-converting layout.",
@@ -151,6 +169,9 @@
     ]
   },
   "workGallery": {
+    "sectionBackground": {
+      "color": "#ffffff"
+    },
     "eyebrow": "Recent Projects",
     "title": "See Our Plumbing Work",
     "description": "Use this image section to showcase completed jobs, equipment quality, and clean workmanship.",
@@ -173,6 +194,9 @@
     ]
   },
   "process": {
+    "sectionBackground": {
+      "color": "#eeffff"
+    },
     "eyebrow": "How It Works",
     "title": "Simple Service Process",
     "description": "Use this section to explain your booking and repair flow in a way customers can trust.",
@@ -204,6 +228,9 @@
     ]
   },
   "about": {
+    "sectionBackground": {
+      "color": "#ffffff"
+    },
     "eyebrow": "About",
     "title": "About Our Team",
     "paragraphs": [
@@ -218,6 +245,9 @@
     ]
   },
   "reviews": {
+    "sectionBackground": {
+      "color": "#eeffff"
+    },
     "eyebrow": "Reviews",
     "title": "What Customers Say",
     "items": [
@@ -242,6 +272,9 @@
     ]
   },
   "serviceAreas": {
+    "sectionBackground": {
+      "color": "#ffffff"
+    },
     "eyebrow": "Coverage",
     "title": "Service Areas",
     "description": "Edit these cities or neighborhoods for each site while keeping the same section layout.",
@@ -257,6 +290,9 @@
     ]
   },
   "faq": {
+    "sectionBackground": {
+      "color": "#eeffff"
+    },
     "eyebrow": "FAQs",
     "title": "Common Plumbing Questions",
     "description": "Answer typical customer concerns to build trust and reduce booking friction.",
@@ -280,6 +316,9 @@
     ]
   },
   "cta": {
+    "sectionBackground": {
+      "color": "#ffffff"
+    },
     "eyebrow": "Call To Action",
     "title": "Need a Plumber Today?",
     "description": "Call now for rapid dispatch, honest pricing, and expert repairs done right the first time.",

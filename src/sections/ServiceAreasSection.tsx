@@ -1,4 +1,5 @@
 import { Container } from '../components/layout/Container.tsx'
+import { FullBleedSection } from '../components/layout/FullBleedSection.tsx'
 import type { ServiceAreasData } from '../lib/siteData.ts'
 
 type ServiceAreasSectionProps = {
@@ -9,7 +10,7 @@ export function ServiceAreasSection({ data }: ServiceAreasSectionProps) {
   const areaCount = data.areas.length
 
   return (
-    <section id="service-areas" className="py-12">
+    <FullBleedSection id="service-areas" className="py-12" background={data.sectionBackground}>
       <Container>
         <div className="overflow-hidden rounded-3xl border border-[var(--theme-primary-100)] bg-white shadow-sm">
           <div className="bg-linear-to-r from-[var(--theme-primary-50)] via-white to-[var(--theme-primary-50)] p-6 sm:p-8">
@@ -46,6 +47,6 @@ export function ServiceAreasSection({ data }: ServiceAreasSectionProps) {
           </div>
         </div>
       </Container>
-    </section>
+    </FullBleedSection>
   )
 }
