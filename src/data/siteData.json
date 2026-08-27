@@ -46,8 +46,8 @@
       "Same-day appointments available"
     ],
     "primaryCta": {
-      "label": "Call Now",
-      "href": "#contact"
+      "label": "Get Free Quote",
+      "href": "#lead-form"
     },
     "secondaryCta": {
       "label": "View Services",

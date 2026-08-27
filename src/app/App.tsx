@@ -20,7 +20,7 @@ function App() {
       <Header business={siteData.business} navigation={siteData.navigation} />
 
       <main>
-        <HeroSection data={siteData.hero} />
+        <HeroSection data={siteData.hero} business={siteData.business} />
         <LeadFormSection data={siteData.leadForm} />
         <EmergencyBannerSection data={siteData.emergencyBanner} />
         <TrustIndicatorsSection data={siteData.trustIndicators} />
